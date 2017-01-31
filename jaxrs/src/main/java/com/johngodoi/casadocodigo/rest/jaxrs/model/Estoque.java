@@ -32,10 +32,23 @@ public class Estoque {
     }
 
     public void adicionarCerveja (Cerveja cerveja) {
+        if(this.cervejas.containsKey(cerveja.getNome()))
+            throw new CervejaJaExisteException();
         this.cervejas.put(cerveja.getNome(), cerveja);
     }
 
     public Cerveja recuperarCervejaPeloNome (String nome) {
         return this.cervejas.get(nome);
+    }
+
+    public void atualizarCerveja(Cerveja cerveja) {
+        if(this.cervejas.containsKey(cerveja.getNome())){
+            this.cervejas.put(cerveja.getNome(),cerveja);
+        }
+    }
+
+    public void apagarCerveja(String nome){
+        if(this.cervejas.containsKey(nome))
+            this.cervejas.remove(nome);
     }
 }

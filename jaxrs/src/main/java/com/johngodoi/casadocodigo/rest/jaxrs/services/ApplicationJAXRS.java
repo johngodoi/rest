@@ -1,8 +1,8 @@
 package com.johngodoi.casadocodigo.rest.jaxrs.services;
 
 import javax.ws.rs.core.Application;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by jgodoi on 31/01/2017.
@@ -10,9 +10,11 @@ import java.util.Set;
 public class ApplicationJAXRS extends Application {
 
     @Override
-    public Set<Class<?>> getClasses() {
-        Set<Class<?>>classes=new HashSet<>();
-        classes.add(TestService.class);
-        return classes;
+    public Map<String, Object> getProperties() {
+
+        Map<String,Object> properties = new HashMap<>();
+        properties.put("jersey.config.server.provider.packages", "com.johngodoi.casadocodigo.rest.jaxrs.services");
+        return properties;
+
     }
 }

@@ -15,6 +15,12 @@ public class Cervejas {
 
     private List<Cerveja> cervejas = new ArrayList<>();
 
+    public Cervejas(List<Cerveja> cervejas){
+        this.cervejas=cervejas;
+    }
+
+    public Cervejas(){}
+
     @XmlElement(name="cerveja")
     public List<Cerveja> getCervejas() {
         return cervejas;
