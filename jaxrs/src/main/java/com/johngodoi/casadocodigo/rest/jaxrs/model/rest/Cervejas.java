@@ -36,7 +36,7 @@ public class Cervejas {
     public List<Link> getLinks(){
         List<Link> links = new ArrayList<>();
         for (Cerveja cerveja : getCervejas()) {
-            Link link = Link.fromPath("cerveja/{nome}")
+            Link link = Link.fromPath("cervejas/{nome}")
                     .rel("cerveja")
                     .title(cerveja.getNome())
                     .build(cerveja.getNome());
