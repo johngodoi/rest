@@ -1,9 +1,6 @@
 package com.johngodoi.casadocodigo.rest.jaxrs.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by jgodoi on 30/01/2017.
@@ -27,7 +24,24 @@ public class Estoque {
     }
 
 
-    public Collection<Cerveja> listarCervejas() {
+    public Collection<Cerveja> listarCervejas(int pagina, int tamanhoPagina) {
+        int indiceInicial = pagina * tamanhoPagina;
+        int indiceFinal = indiceInicial + tamanhoPagina;
+
+        List<Cerveja> cervejas = (List<Cerveja>) listarCervejas();
+        if(cervejas.size() > indiceInicial){
+            if(cervejas.size() > indiceFinal){
+                cervejas = cervejas.subList(indiceInicial, indiceFinal);
+            } else {
+                cervejas = cervejas.subList(indiceInicial, cervejas.size());
+            }
+        } else {
+            cervejas = new ArrayList<>();
+        }
+        return cervejas;
+    }
+
+    public Collection<Cerveja> listarCervejas(){
         return new ArrayList<>(this.cervejas.values());
     }
 

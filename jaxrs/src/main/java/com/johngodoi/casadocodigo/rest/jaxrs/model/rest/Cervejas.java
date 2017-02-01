@@ -2,8 +2,10 @@ package com.johngodoi.casadocodigo.rest.jaxrs.model.rest;
 
 import com.johngodoi.casadocodigo.rest.jaxrs.model.Cerveja;
 
+import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +23,7 @@ public class Cervejas {
 
     public Cervejas(){}
 
-    @XmlElement(name="cerveja")
+    @XmlTransient
     public List<Cerveja> getCervejas() {
         return cervejas;
     }
@@ -30,4 +32,16 @@ public class Cervejas {
         this.cervejas = cervejas;
     }
 
+    @XmlElement(name="link")
+    public List<Link> getLinks(){
+        List<Link> links = new ArrayList<>();
+        for (Cerveja cerveja : getCervejas()) {
+            Link link = Link.fromPath("cerveja/{nome}")
+                    .rel("cerveja")
+                    .title(cerveja.getNome())
+                    .build(cerveja.getNome());
+            links.add(link);
+        }
+        return links;
+    }
 }
