@@ -1,4 +1,4 @@
-package com.johngodoi.casadocodigo.rest.jaxrs.model;
+package com.johngodoi.casadocodigo.rest.jaxrs.server.model;
 
 import java.util.*;
 

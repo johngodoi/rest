@@ -5,12 +5,12 @@
 
 
     <servlet>
-        <servlet-name>com.johngodoi.casadocodigo.rest.jaxrs.services.ApplicationJAXRS</servlet-name>
+        <servlet-name>com.johngodoi.casadocodigo.rest.jaxrs.server.services.ApplicationJAXRS</servlet-name>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>com.johngodoi.casadocodigo.rest.jaxrs.services.ApplicationJAXRS</servlet-name>
+        <servlet-name>com.johngodoi.casadocodigo.rest.jaxrs.server.services.ApplicationJAXRS</servlet-name>
         <url-pattern>/services/*</url-pattern>
     </servlet-mapping>
 </web-app>

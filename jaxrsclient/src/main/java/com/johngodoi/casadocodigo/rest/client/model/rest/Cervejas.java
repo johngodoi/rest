@@ -1,11 +1,10 @@
-package com.johngodoi.casadocodigo.rest.jaxrs.model.rest;
+package com.johngodoi.casadocodigo.rest.client.model.rest;
 
-import com.johngodoi.casadocodigo.rest.jaxrs.model.Cerveja;
+import com.johngodoi.casadocodigo.rest.client.Constants;
+import com.johngodoi.casadocodigo.rest.client.model.Cerveja;
 
 import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,11 @@ import java.util.List;
  * Created by jgodoi on 30/01/2017.
  */
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Cervejas {
+
+    @XmlElement(name = "link")
+    private List<CustomLink> links;
 
     private List<Cerveja> cervejas = new ArrayList<>();
 
@@ -32,14 +35,12 @@ public class Cervejas {
         this.cervejas = cervejas;
     }
 
-    @XmlElement(name="link")
     public List<Link> getLinks(){
         List<Link> links = new ArrayList<>();
-        for (Cerveja cerveja : getCervejas()) {
-            Link link = Link.fromPath("cervejas/{nome}")
-                    .rel("cerveja")
-                    .title(cerveja.getNome())
-                    .build(cerveja.getNome());
+        for (CustomLink customLink : this.links) {
+            Link link = Link.fromUri(Constants.HOST+customLink.getHref())
+                    .rel(customLink.getRel())
+                    .title(customLink.getTitle()).build();
             links.add(link);
         }
         return links;

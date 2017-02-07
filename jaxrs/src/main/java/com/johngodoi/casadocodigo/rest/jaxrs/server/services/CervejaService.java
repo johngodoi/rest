@@ -1,9 +1,9 @@
-package com.johngodoi.casadocodigo.rest.jaxrs.services;
+package com.johngodoi.casadocodigo.rest.jaxrs.server.services;
 
-import com.johngodoi.casadocodigo.rest.jaxrs.model.Cerveja;
-import com.johngodoi.casadocodigo.rest.jaxrs.model.CervejaJaExisteException;
-import com.johngodoi.casadocodigo.rest.jaxrs.model.Estoque;
-import com.johngodoi.casadocodigo.rest.jaxrs.model.rest.Cervejas;
+import com.johngodoi.casadocodigo.rest.jaxrs.server.model.Cerveja;
+import com.johngodoi.casadocodigo.rest.jaxrs.server.model.CervejaJaExisteException;
+import com.johngodoi.casadocodigo.rest.jaxrs.server.model.Estoque;
+import com.johngodoi.casadocodigo.rest.jaxrs.server.model.rest.Cervejas;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;

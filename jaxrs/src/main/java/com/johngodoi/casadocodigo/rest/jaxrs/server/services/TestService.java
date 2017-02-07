@@ -1,4 +1,4 @@
-package com.johngodoi.casadocodigo.rest.jaxrs.services;
+package com.johngodoi.casadocodigo.rest.jaxrs.server.services;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
