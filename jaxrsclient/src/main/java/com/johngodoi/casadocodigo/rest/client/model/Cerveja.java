@@ -27,6 +27,14 @@ public class Cerveja {
         this.tipo = tipo;
     }
 
+    public void setCervejaria(String cervejaria) {
+        this.cervejaria = cervejaria;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
     public enum Tipo {
         LAGER, PILSEN, BOCK, WEIZEN;
     }

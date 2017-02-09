@@ -44,30 +44,30 @@
       <artifactId>commons-io</artifactId>
       <version>2.4</version>
     </dependency>
-      <dependency>
-        <groupId>org.eclipse.jetty.orbit</groupId>
-        <artifactId>javax.servlet</artifactId>
-        <version>3.0.0.v201112011016</version>
-        <scope>provided</scope>
-      </dependency>
-    </dependencies>
-    <build>
-      <plugins>
-        <plugin>
-          <groupId>org.mortbay.jetty</groupId>
-          <artifactId>jetty-maven-plugin</artifactId>
-          <version>8.1.9.v20130131</version>
-          <configuration>
-            <scanIntervalSeconds>10</scanIntervalSeconds>
-            <stopKey>foo</stopKey>
-            <stopPort>9999</stopPort>
-            <webApp>
-              <contextPath>/cervejaria</contextPath>
-            </webApp>
+    <dependency>
+      <groupId>org.eclipse.jetty.orbit</groupId>
+      <artifactId>javax.servlet</artifactId>
+      <version>3.0.0.v201112011016</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>8.1.9.v20130131</version>
+        <configuration>
+          <scanIntervalSeconds>10</scanIntervalSeconds>
+          <stopKey>foo</stopKey>
+          <stopPort>9999</stopPort>
+          <webApp>
+            <contextPath>/cervejaria</contextPath>
+          </webApp>
 
-          </configuration>
-          <executions>
-            <execution>
+        </configuration>
+        <executions>
+          <execution>
               <id>start-jetty</id>
               <phase>pre-integration-test</phase>
               <goals>
@@ -77,16 +77,16 @@
                 <scanIntervalSeconds>0</scanIntervalSeconds>
                 <daemon>true</daemon>
               </configuration>
-            </execution>
-            <execution>
+          </execution>
+          <execution>
               <id>stop-jetty</id>
               <phase>post-integration-test</phase>
               <goals>
                 <goal>stop</goal>
               </goals>
-            </execution>
-          </executions>
-        </plugin>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.19.1</version>
