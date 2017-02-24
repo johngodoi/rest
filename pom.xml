@@ -9,6 +9,7 @@
     <module>servlet</module>
     <module>jaxrs</module>
     <module>jaxrsclient</module>
+    <module>easyrest</module>
   </modules>
   <packaging>pom</packaging>
 
